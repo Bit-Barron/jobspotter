@@ -30,6 +30,11 @@
     "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "clerk": {
+        "clerkPublishableKey": "pk_test_Z3JlYXQtY3JpY2tldC0yNS5jbGVyay5hY2NvdW50cy5kZXYk"
+      }
     }
   }
 }
