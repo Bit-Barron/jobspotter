@@ -3,10 +3,11 @@ import { ActivityIndicator, FlatList, View } from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
 import PopularJobCard from "./popular-card";
+import { SearchStore } from "~/store/dashboard/SearchStore";
 
 export const PopularJobs = () => {
-  const { jobQuery } = JobHook();
-  console.log(jobQuery.data);
+  const { search } = SearchStore();
+  const { jobQuery } = JobHook(search);
 
   return (
     <View>

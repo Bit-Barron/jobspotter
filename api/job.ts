@@ -1,11 +1,11 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export const searchRoute = async (endpoint?: string) => {
+export const searchRoute = async (query?: string, endpoint?: string) => {
   const options: AxiosRequestConfig<any> = {
     method: "GET",
     url: `https://jsearch.p.rapidapi.com/${endpoint || "search"}`,
     params: {
-      query: "developer",
+      query: `${query || "developer"}`,
       page: "1",
       num_pages: "1",
       date_posted: "all",

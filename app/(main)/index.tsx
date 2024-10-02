@@ -6,9 +6,11 @@ import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
 import { PopularJobs } from "~/components/pages/dashboard/popular/popular-jobs";
 import { NearbyJobs } from "~/components/pages/dashboard/nearby/nearby-jobs";
+import { SearchStore } from "~/store/dashboard/SearchStore";
 
 export default function Main() {
   const { user } = useUser();
+  const { search, setSearch } = SearchStore();
 
   return (
     <View className="p-2 flex-1">
@@ -16,7 +18,11 @@ export default function Main() {
       <Text className="text-3xl font-semibold mt-1">Find your perfect job</Text>
       <View className="flex-row mt-5 items-center">
         <View className="flex-1 mr-2">
-          <Input placeholder="What are you looking for?" />
+          <Input
+            value={search}
+            onChange={(e) => setSearch(e.nativeEvent.text)}
+            placeholder="What are you looking for?"
+          />
         </View>
         <Button>
           <Text>Search</Text>
