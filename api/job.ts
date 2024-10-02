@@ -1,16 +1,9 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-interface JobQuery {
-  query: string;
-  page: string;
-  num_pages: string;
-  date_posted: string;
-}
-
-export const searchRoute = async () => {
+export const searchRoute = async (endpoint?: string) => {
   const options: AxiosRequestConfig<any> = {
     method: "GET",
-    url: `https://jsearch.p.rapidapi.com/search`,
+    url: `https://jsearch.p.rapidapi.com/${endpoint || "search"}`,
     params: {
       query: "developer",
       page: "1",
