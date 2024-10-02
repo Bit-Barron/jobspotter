@@ -1,6 +1,6 @@
 import "~/global.css";
 
-import * as SecureStore from 'expo-secure-store'
+import * as SecureStore from "expo-secure-store";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Theme, ThemeProvider } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
@@ -12,7 +12,7 @@ import { useColorScheme } from "~/lib/useColorScheme";
 import { PortalHost } from "@rn-primitives/portal";
 import { setAndroidNavigationBar } from "~/lib/android-navigation-bar";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { ClerkProvider, ClerkLoaded } from "@clerk/clerk-expo";
+import { ClerkProvider } from "@clerk/clerk-expo";
 
 const LIGHT_THEME: Theme = {
   dark: false,

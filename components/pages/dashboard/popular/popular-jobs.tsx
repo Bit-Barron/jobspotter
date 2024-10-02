@@ -5,7 +5,7 @@ import { Text } from "~/components/ui/text";
 import PopularJobCard from "./popular-card";
 
 export const PopularJobs = () => {
-  const { jobQuery } = JobHook("search");
+  const { jobQuery } = JobHook();
   console.log(jobQuery.data);
 
   return (
