@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { searchRoute } from "~/api/job";
 
-export const JobHook = (endpoint?: string, query?: string) => {
+export const JobHook = () => {
   const jobQuery = useQuery({
     queryKey: ["jobs"],
-    queryFn: async () =>
-      searchRoute(query || "developer", endpoint || "search"),
+    queryFn: async () => searchRoute(),
   });
 
   return {
