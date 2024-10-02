@@ -6,14 +6,6 @@ import { useAuthActions } from "~/store/auth/AuthStore";
 
 export default function Screen() {
   const router = useRouter();
-  const { onLogout } = useAuthActions();
-
-  const handleLogout = async () => {
-    const success = await onLogout();
-    if (success) {
-      router.replace("/login");
-    }
-  };
 
   return (
     <View className="flex justify-center items-center h-screen">
@@ -25,9 +17,6 @@ export default function Screen() {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => router.push("/(auth)/register")}>
         <Text>Register</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleLogout}>
-        <Text>Logout</Text>
       </TouchableOpacity>
     </View>
   );

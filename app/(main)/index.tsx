@@ -41,6 +41,12 @@ export default function Main() {
         </TouchableOpacity>
       </View>
       <PopularJobs />
+      <View className="mt-5 flex-row justify-between items-center">
+        <Text className="text-2xl">Nearby jobs</Text>
+        <TouchableOpacity>
+          <Text className="text-gray-600">Show all</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
