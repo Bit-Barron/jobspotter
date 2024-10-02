@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  View,
-  TouchableOpacity,
-} from "react-native";
+import { ActivityIndicator, View, FlatList } from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
 import { NearbyJobCard } from "./nearby-card";
@@ -14,21 +9,22 @@ interface NearbyJobsProps {}
 export const NearbyJobs: React.FC<NearbyJobsProps> = () => {
   const { jobQuery } = JobHook();
 
+  const renderItem = ({ item }: { item: any }) => <NearbyJobCard item={item} />;
+
   return (
-    <View className="px-4">
-      {jobQuery.isLoading ? (
-        <ActivityIndicator size="large" />
-      ) : jobQuery.isError ? (
-        <Text>Something went wrong</Text>
-      ) : (
-        <FlatList
-          data={jobQuery.data?.data}
-          renderItem={({ item }) => <NearbyJobCard item={item} />}
-          keyExtractor={(item) => item?.job_id || Math.random().toString()}
-          contentContainerStyle={{ paddingBottom: 16 }}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
-    </View>
+    <FlatList
+      data={jobQuery.data?.data || []}
+      renderItem={renderItem}
+      keyExtractor={(item) => item?.job_id || Math.random().toString()}
+      ListEmptyComponent={
+        jobQuery.isLoading ? (
+          <ActivityIndicator size="large" />
+        ) : jobQuery.isError ? (
+          <Text>Something went wrong</Text>
+        ) : null
+      }
+      contentContainerStyle={{ flexGrow: 1, padding: 16 }}
+      showsVerticalScrollIndicator={false}
+    />
   );
 };
