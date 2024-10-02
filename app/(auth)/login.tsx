@@ -46,12 +46,13 @@ export default function Page() {
           onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
         />
         <Input
+          className="mt-2"
           value={password}
           placeholder="Password..."
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
-        <Button onPress={onSignInPress}>
+        <Button className="mt-5" onPress={onSignInPress}>
           <Text>Sign in</Text>
         </Button>
         <View className="items-center">

@@ -46,18 +46,20 @@ export default function SignUpScreen() {
             onChangeText={setEmailAddress}
           />
           <Input
+            className="mt-2"
             autoCapitalize="none"
             value={username}
             placeholder="Username..."
             onChangeText={setUsername}
           />
           <Input
+            className="mt-2"
             value={password}
             placeholder="Password..."
             secureTextEntry={true}
             onChangeText={setPassword}
           />
-          <Button onPress={handleSignUp}>
+          <Button className="mt-5" onPress={handleSignUp}>
             <Text>Sign Up</Text>
           </Button>
 
