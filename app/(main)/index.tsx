@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
 import { Input } from "~/components/ui/input";
@@ -7,10 +7,20 @@ import { Text } from "~/components/ui/text";
 import { PopularJobs } from "~/components/pages/dashboard/popular/popular-jobs";
 import { NearbyJobs } from "~/components/pages/dashboard/nearby/nearby-jobs";
 import { SearchStore } from "~/store/dashboard/SearchStore";
+import { searchRoute } from "~/api/job";
 
 export default function Main() {
   const { user } = useUser();
   const { search, setSearch } = SearchStore();
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchData();
+      setData((result as any) || []);
+    };
+    fetchData();
+  }, []);
 
   return (
     <View className="p-2 flex-1">
@@ -56,3 +66,4 @@ export default function Main() {
     </View>
   );
 }
+// azerabdu5@gmail.com

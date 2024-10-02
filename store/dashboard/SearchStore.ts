@@ -1,5 +1,4 @@
-import { create } from "zustand";
-
+import create from "zustand";
 type SearchStore = {
   search: string;
   setSearch: (search: string) => void;
