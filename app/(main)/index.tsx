@@ -4,13 +4,11 @@ import { useUser } from "@clerk/clerk-expo";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
-import { JobHook } from "~/components/hooks/job-hook";
 import { PopularJobs } from "~/components/pages/home/popular/popular-jobs";
 import { NearbyJobs } from "~/components/pages/home/nearby/nearby-jobs";
 
 export default function Main() {
   const { user } = useUser();
-  const { jobQuery } = JobHook();
 
   return (
     <View className="p-2 flex-1">

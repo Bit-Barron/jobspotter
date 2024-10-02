@@ -1,0 +1,16 @@
+Search functionality:
+Implement a search feature that allows users to search for jobs based on keywords, location, or job type.
+Job Details Screen:
+Create a new screen that shows detailed information about a job when a user taps on a job card.
+Filtering:
+Add filters for job type (full-time, part-time, remote), salary range, or experience level.
+Favorites:
+Allow users to save jobs they're interested in and view them later.
+Apply functionality:
+Add a button that lets users "apply" for a job (this could just be a mock function for learning purposes).
+User Profile:
+Create a user profile screen where users can input their information and preferences.
+Pagination:
+Implement pagination for the job listings to load more jobs as the user scrolls.
+Dark Mode:
+Add a dark mode option to the app, allowing users to switch between light and dark themes.

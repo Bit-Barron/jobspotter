@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const searchRoute = async () => {
+export const searchRoute = async (endpoint: string) => {
   const options = {
     method: "GET",
-    url: "https://jsearch.p.rapidapi.com/search",
+    url: `https://jsearch.p.rapidapi.com/${endpoint ? endpoint : "search"}`,
     params: {
       query: "Node.js developer in New-York,USA",
       page: "1",
@@ -19,3 +19,4 @@ export const searchRoute = async () => {
 
   return response.data;
 };
+  

@@ -1,12 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
 import { Text } from "~/components/ui/text";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "~/components/ui/card";
+import { Card, CardHeader } from "~/components/ui/card";
 
 interface NearbyJobCardProps {
   item: any;
