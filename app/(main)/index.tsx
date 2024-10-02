@@ -6,6 +6,7 @@ import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
 import { JobHook } from "~/components/hooks/job-hook";
 import { PopularJobs } from "~/components/pages/home/popular/popular-jobs";
+import { NearbyJobs } from "~/components/pages/home/nearby/nearby-jobs";
 
 export default function Main() {
   const { user } = useUser();
@@ -47,6 +48,7 @@ export default function Main() {
           <Text className="text-gray-600">Show all</Text>
         </TouchableOpacity>
       </View>
+      <NearbyJobs />
     </View>
   );
 }

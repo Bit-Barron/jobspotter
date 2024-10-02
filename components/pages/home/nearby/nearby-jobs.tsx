@@ -1,12 +1,11 @@
-import React from "react";
-import { useRouter } from "expo-router";
 import { ActivityIndicator, FlatList, View } from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
-import PopularJobCard from "./popular-card";
+import { NearbyJobCard } from "./nearby-card";
 
-export const PopularJobs = () => {
-  const router = useRouter();
+interface NearbyJobsProps {}
+
+export const NearbyJobs: React.FC<NearbyJobsProps> = () => {
   const { jobQuery } = JobHook();
 
   return (
@@ -18,7 +17,7 @@ export const PopularJobs = () => {
       ) : (
         <FlatList
           data={jobQuery.data?.data}
-          renderItem={({ item }) => <PopularJobCard item={item} />}
+          renderItem={({ item }) => <NearbyJobCard item={item} />}
           keyExtractor={(item) => item?.job_id || Math.random().toString()}
           horizontal
           contentContainerStyle={{ paddingHorizontal: 16 }}
