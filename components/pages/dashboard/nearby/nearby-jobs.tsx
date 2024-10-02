@@ -1,4 +1,10 @@
-import { ActivityIndicator, FlatList, View } from "react-native";
+import React from "react";
+import {
+  ActivityIndicator,
+  FlatList,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
 import { NearbyJobCard } from "./nearby-card";
@@ -9,7 +15,7 @@ export const NearbyJobs: React.FC<NearbyJobsProps> = () => {
   const { jobQuery } = JobHook();
 
   return (
-    <View>
+    <View className="px-4">
       {jobQuery.isLoading ? (
         <ActivityIndicator size="large" />
       ) : jobQuery.isError ? (
@@ -19,9 +25,8 @@ export const NearbyJobs: React.FC<NearbyJobsProps> = () => {
           data={jobQuery.data?.data}
           renderItem={({ item }) => <NearbyJobCard item={item} />}
           keyExtractor={(item) => item?.job_id || Math.random().toString()}
-          horizontal
-          contentContainerStyle={{ paddingHorizontal: 16 }}
-          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 16 }}
+          showsVerticalScrollIndicator={false}
         />
       )}
     </View>

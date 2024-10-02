@@ -33,14 +33,14 @@ export default function Main() {
           <Text>Remote</Text>
         </TouchableOpacity>
       </View>
-      <View className="mt-5 flex-row justify-between items-center">
+      <View className="mt-5 flex-row justify-between items-center p-3">
         <Text className="text-2xl">Popular Jobs</Text>
         <TouchableOpacity>
           <Text className="text-gray-600">Show all</Text>
         </TouchableOpacity>
       </View>
       <PopularJobs />
-      <View className="mt-5 flex-row justify-between items-center">
+      <View className="mt-5 flex-row justify-between items-center p-3">
         <Text className="text-2xl">Nearby jobs</Text>
         <TouchableOpacity>
           <Text className="text-gray-600">Show all</Text>
