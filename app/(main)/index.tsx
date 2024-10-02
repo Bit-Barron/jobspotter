@@ -23,13 +23,13 @@ export default function Main() {
         </Button>
       </View>
       <View className="flex-row mt-4 mb-4">
-        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full mr-2">
+        <TouchableOpacity className="px-4 border py-2 rounded-full mr-2">
           <Text>Full-time</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full mr-2">
+        <TouchableOpacity className="border px-4 py-2 rounded-full mr-2">
           <Text>Part-time</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full">
+        <TouchableOpacity className="border px-4 py-2 rounded-full">
           <Text>Remote</Text>
         </TouchableOpacity>
       </View>
