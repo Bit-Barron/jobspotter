@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { useUser } from "@clerk/clerk-expo";
-import { Input } from "~/components/ui/input";
-import { Button } from "~/components/ui/button";
+
 import { Text } from "~/components/ui/text";
 import { PopularJobs } from "~/components/pages/dashboard/popular/popular-jobs";
 import { NearbyJobs } from "~/components/pages/dashboard/nearby/nearby-jobs";
@@ -10,12 +9,11 @@ import { SearchStore } from "~/store/dashboard/SearchStore";
 
 export default function Main() {
   const { user } = useUser();
-  const { search, setSearch } = SearchStore();
 
   return (
     <View className="p-2 flex-1">
-      <Text className="text-lg font-light">Hello, {user?.username}</Text>
-      
+      <Text className="text-lg font-light p-2">Hello, {user?.username}</Text>
+
       <View className="mt-5 flex-row justify-between items-center p-3">
         <Text className="text-2xl">Popular Jobs</Text>
         <TouchableOpacity>
