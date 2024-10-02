@@ -7,7 +7,7 @@ import { NearbyJobCard } from "./nearby-card";
 interface NearbyJobsProps {}
 
 export const NearbyJobs: React.FC<NearbyJobsProps> = () => {
-  const { jobQuery } = JobHook();
+  const { jobQuery } = JobHook("estimated-salary");
 
   const renderItem = ({ item }: { item: any }) => <NearbyJobCard item={item} />;
 

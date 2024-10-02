@@ -7,8 +7,7 @@ import { SearchStore } from "~/store/dashboard/SearchStore";
 
 export const PopularJobs = () => {
   const { search } = SearchStore();
-  const { jobQuery } = JobHook();
-
+  const { jobQuery } = JobHook(search);
   return (
     <View>
       {jobQuery.isLoading ? (
