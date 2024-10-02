@@ -4,17 +4,15 @@ import { useUser } from "@clerk/clerk-expo";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
-import { SearchIcon } from "lucide-react-native";
 import { JobHook } from "~/components/hooks/job-hook";
+import { PopularJobs } from "~/components/pages/home/popular/popular-jobs";
 
 export default function Main() {
   const { user } = useUser();
-  const { jobQUery } = JobHook();
-
-  console.log(jobQUery.data);
+  const { jobQuery } = JobHook();
 
   return (
-    <View className="p-2">
+    <View className="p-2 flex-1">
       <Text className="text-lg font-light">Hello, {user?.username}</Text>
       <Text className="text-3xl font-semibold mt-1">Find your perfect job</Text>
       <View className="flex-row mt-5 items-center">
@@ -22,14 +20,14 @@ export default function Main() {
           <Input placeholder="What are you looking for?" />
         </View>
         <Button>
-          <SearchIcon size={20} color="white" />
+          <Text>Search</Text>
         </Button>
       </View>
-      <View className="flex-row mt-4 ">
-        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full">
+      <View className="flex-row mt-4 mb-4">
+        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full mr-2">
           <Text>Full-time</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full">
+        <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full mr-2">
           <Text>Part-time</Text>
         </TouchableOpacity>
         <TouchableOpacity className="bg-gray-200 px-4 py-2 rounded-full">
@@ -42,6 +40,7 @@ export default function Main() {
           <Text className="text-gray-600">Show all</Text>
         </TouchableOpacity>
       </View>
+      <PopularJobs />
     </View>
   );
 }
