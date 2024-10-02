@@ -2,7 +2,7 @@ import { useRouter } from "expo-router";
 import * as React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Text } from "react-native";
-import { useAuthActions } from "~/store/auth/SignUpStore";
+import { useAuthActions } from "~/store/auth/AuthStore";
 
 export default function Screen() {
   const router = useRouter();

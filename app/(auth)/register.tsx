@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useRouter } from "expo-router";
-import { useAuthActions, useAuthStore } from "~/store/auth/SignUpStore";
+import { useAuthActions, useAuthStore } from "~/store/auth/AuthStore";
 import { Input } from "~/components/ui/input";
 import { Card } from "~/components/ui/card";
 import { TouchableOpacity, View } from "react-native";
