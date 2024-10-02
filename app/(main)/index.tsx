@@ -4,8 +4,8 @@ import { useUser } from "@clerk/clerk-expo";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
-import { PopularJobs } from "~/components/pages/home/popular/popular-jobs";
-import { NearbyJobs } from "~/components/pages/home/nearby/nearby-jobs";
+import { PopularJobs } from "~/components/pages/dashboard/popular/popular-jobs";
+import { NearbyJobs } from "~/components/pages/dashboard/nearby/nearby-jobs";
 
 export default function Main() {
   const { user } = useUser();
