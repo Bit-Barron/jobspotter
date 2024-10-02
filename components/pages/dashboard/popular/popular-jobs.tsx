@@ -6,6 +6,7 @@ import PopularJobCard from "./popular-card";
 
 export const PopularJobs = () => {
   const { jobQuery } = JobHook("search");
+  console.log(jobQuery.data);
 
   return (
     <View>

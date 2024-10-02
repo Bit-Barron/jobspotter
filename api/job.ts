@@ -21,5 +21,7 @@ export const searchRoute = async (endpoint: string, query: JobQuery) => {
   };
   const response = await axios.request(options);
 
+  console.log("rtesponse", response);
+
   return response.data;
 };

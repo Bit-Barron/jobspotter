@@ -55,7 +55,7 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
         <CardFooter>
           <View className="flex-row items-center">
             <Text className="text-xs text-gray-500">
-              Posted{" "}
+              Posted
               {new Date(
                 item.job_posted_at_timestamp * 1000
               ).toLocaleDateString()}
