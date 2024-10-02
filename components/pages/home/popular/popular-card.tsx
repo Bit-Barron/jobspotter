@@ -15,7 +15,7 @@ interface PopularJobCardProps {
 
 const PopularJobCard = ({ item }: PopularJobCardProps) => {
   return (
-    <TouchableOpacity className="mr-4 w-72">
+    <TouchableOpacity className="mr-4">
       <Card className="border-0 shadow-md">
         <CardHeader className="pb-2">
           <View className="flex-row items-center justify-between">

@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 export const searchRoute = async (endpoint: string) => {
-  const options = {
+  const options: AxiosRequestConfig<any> = {
     method: "GET",
     url: `https://jsearch.p.rapidapi.com/${endpoint ? endpoint : "search"}`,
     params: {
@@ -19,4 +19,3 @@ export const searchRoute = async (endpoint: string) => {
 
   return response.data;
 };
-  
