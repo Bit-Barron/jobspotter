@@ -2,22 +2,19 @@ import React from "react";
 import { View, TouchableOpacity, Image } from "react-native";
 import { Text } from "~/components/ui/text";
 import { Card, CardHeader, CardContent } from "~/components/ui/card";
-
-interface JobItem {
-  id: string;
-  employer_logo: string;
-  job_title: string;
-  employer_name: string;
-  job_employment_type: string;
-}
+import { useRouter } from "expo-router";
 
 interface NearbyJobCardProps {
-  item: JobItem;
+  item: any;
 }
 
 export const NearbyJobCard = ({ item }: NearbyJobCardProps) => {
+  const router = useRouter();
   return (
-    <TouchableOpacity className="mb-4">
+    <TouchableOpacity
+      className="mb-4"
+      onPress={() => router.push(`/details/${item.job_id}`)}
+    >
       <Card>
         <CardContent className="flex-row items-center p-4">
           <Image
