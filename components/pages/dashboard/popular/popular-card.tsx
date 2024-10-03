@@ -18,7 +18,7 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
   const router = useRouter();
   return (
     <TouchableOpacity
-      className="w-[200px] h-[80px] mr-4"
+      className="mr-4 w-96 h-60"
       onPress={() => router.push(`/details/${item.job_id}`)}
     >
       <Card className="border-0 shadow-md">
