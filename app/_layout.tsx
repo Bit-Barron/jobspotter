@@ -13,6 +13,7 @@ import { PortalHost } from "@rn-primitives/portal";
 import { setAndroidNavigationBar } from "~/lib/android-navigation-bar";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ClerkProvider } from "@clerk/clerk-expo";
+import Menubar from "~/components/pages/container/menubar";
 
 const LIGHT_THEME: Theme = {
   dark: false,

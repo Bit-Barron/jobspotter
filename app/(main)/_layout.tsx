@@ -1,6 +1,7 @@
 import { useUser } from "@clerk/clerk-expo";
 import { Stack, useRouter } from "expo-router";
 import { useEffect } from "react";
+import Menubar from "~/components/pages/container/menubar";
 
 const Layout = () => {
   const { user } = useUser();
@@ -17,29 +18,32 @@ const Layout = () => {
   }
 
   return (
-    <Stack>
-      <Stack.Screen
-        name="index"
-        options={{
-          title: "Home",
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="jobs/index"
-        options={{
-          title: "Jobs",
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="details/[id]"
-        options={{
-          title: "Job Details",
-          headerShown: false,
-        }}
-      />
-    </Stack>
+    <>
+      <Stack>
+        <Stack.Screen
+          name="index"
+          options={{
+            title: "Home",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="jobs/index"
+          options={{
+            title: "Jobs",
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="details/[id]"
+          options={{
+            title: "Job Details",
+            headerShown: false,
+          }}
+        />
+      </Stack>
+      <Menubar />
+    </>
   );
 };
 
