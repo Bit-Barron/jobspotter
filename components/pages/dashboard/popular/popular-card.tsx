@@ -18,7 +18,7 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
   const router = useRouter();
   return (
     <TouchableOpacity
-      className="mr-4 w-96 h-60"
+      className="w-[200px] h-[80px] mr-4"
       onPress={() => router.push(`/details/${item.job_id}`)}
     >
       <Card className="border-0 shadow-md">
@@ -50,23 +50,7 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
               {item.employer_name || "Unknown Company"}
             </Text>
           </View>
-          <View className="flex-row items-center">
-            <Text className="text-sm text-gray-600">
-              {item.job_city || "Location not specified"},{" "}
-              {item.job_country || ""}
-            </Text>
-          </View>
         </CardContent>
-        <CardFooter>
-          <View className="flex-row items-center">
-            <Text className="text-xs text-gray-500">
-              Posted
-              {new Date(
-                item.job_posted_at_timestamp * 1000
-              ).toLocaleDateString()}
-            </Text>
-          </View>
-        </CardFooter>
       </Card>
     </TouchableOpacity>
   );

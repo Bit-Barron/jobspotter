@@ -19,7 +19,13 @@ const Layout = () => {
   return (
     <Stack>
       <Stack.Screen name="index" />
-      <Stack.Screen name="details/[id]" />
+      <Stack.Screen
+        name="details/[id]"
+        options={{
+          title: "Job Details",
+          headerShown: true,
+        }}
+      />
     </Stack>
   );
 };
