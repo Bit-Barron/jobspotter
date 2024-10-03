@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { FlatList, View, Image, Linking, ScrollView } from "react-native";
+import {
+  FlatList,
+  View,
+  Image,
+  Linking,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
 import {
@@ -12,46 +19,50 @@ import {
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { SearchStore } from "~/store/dashboard/SearchStore";
+import { useRouter } from "expo-router";
 
 export default function Jobs() {
   const { search, setSearch } = SearchStore();
   const [searchTerm, setSearchTerm] = useState("");
   const { jobQuery } = JobHook(search);
+  const router = useRouter();
 
   const handleSearch = () => {
     setSearch(searchTerm);
   };
 
   const renderJobItem = ({ item }: any) => (
-    <Card className="mb-4">
-      <CardHeader>
-        <CardTitle>{item.job_title}</CardTitle>
-        <Text className="text-sm text-gray-500">{item.employer_name}</Text>
-      </CardHeader>
-      <CardContent>
-        <View className="flex-row items-center mb-2">
-          {item.employer_logo && (
-            <Image
-              source={{ uri: item.employer_logo }}
-              style={{ width: 50, height: 50, marginRight: 10 }}
-              resizeMode="contain"
-            />
-          )}
-          <View>
-            <Text className="font-bold">{item.job_employment_type}</Text>
-            <Text>{`${item.job_city}, ${item.job_state}, ${item.job_country}`}</Text>
+    <TouchableOpacity onPress={() => router.push(`/details/${item.job_id}`)}>
+      <Card className="mb-4">
+        <CardHeader>
+          <CardTitle>{item.job_title}</CardTitle>
+          <Text className="text-sm text-gray-500">{item.employer_name}</Text>
+        </CardHeader>
+        <CardContent>
+          <View className="flex-row items-center mb-2">
+            {item.employer_logo && (
+              <Image
+                source={{ uri: item.employer_logo }}
+                style={{ width: 50, height: 50, marginRight: 10 }}
+                resizeMode="contain"
+              />
+            )}
+            <View>
+              <Text className="font-bold">{item.job_employment_type}</Text>
+              <Text>{`${item.job_city}, ${item.job_state}, ${item.job_country}`}</Text>
+            </View>
           </View>
-        </View>
-        <Text numberOfLines={3} className="text-sm">
-          {item.job_description}
-        </Text>
-      </CardContent>
-      <CardFooter>
-        <Button onPress={() => Linking.openURL(item.job_apply_link)}>
-          <Text>Apply Now</Text>
-        </Button>
-      </CardFooter>
-    </Card>
+          <Text numberOfLines={3} className="text-sm">
+            {item.job_description}
+          </Text>
+        </CardContent>
+        <CardFooter>
+          <Button onPress={() => Linking.openURL(item.job_apply_link)}>
+            <Text>Apply Now</Text>
+          </Button>
+        </CardFooter>
+      </Card>
+    </TouchableOpacity>
   );
 
   return (
