@@ -4,9 +4,8 @@ import { useUser } from "@clerk/clerk-expo";
 import { Text } from "~/components/ui/text";
 import { PopularJobs } from "~/components/pages/dashboard/popular/popular-jobs";
 import { NearbyJobs } from "~/components/pages/dashboard/nearby/nearby-jobs";
-import { useRouter, Href } from "expo-router";
+import { useRouter } from "expo-router";
 import { useAuthActions } from "~/store/auth/AuthStore";
-import Menubar from "~/components/pages/container/menubar";
 
 export default function Main() {
   const { user } = useUser();

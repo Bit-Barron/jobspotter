@@ -2,14 +2,7 @@ import React from "react";
 import { View, TouchableOpacity, ScrollView, Image } from "react-native";
 import { useAuth, useUser } from "@clerk/clerk-expo";
 import { Text } from "~/components/ui/text";
-import {
-  ChevronRight,
-  LogOut,
-  Mail,
-  Phone,
-  Shield,
-  User,
-} from "lucide-react-native";
+import { ChevronRight, LogOut, Mail, Phone, User } from "lucide-react-native";
 import { useRouter } from "expo-router";
 
 export default function Settings() {
@@ -22,19 +15,11 @@ export default function Settings() {
       icon: <Mail size={24} color="#4B5563" />,
       title: "Email",
       value: user?.primaryEmailAddress?.emailAddress,
-      href: "/settings/change-email",
     },
     {
-      icon: <Phone size={24} color="#4B5563" />,
-      title: "Phone",
-      value: user?.phoneNumbers[0]?.phoneNumber,
-      href: "/settings/change-phone",
-    },
-    {
-      icon: <Shield size={24} color="#4B5563" />,
-      title: "Password",
-      value: "Change password",
-      href: "/settings/change-password",
+      icon: <User size={24} color="#4B5563" />,
+      title: "Username",
+      value: user?.username,
     },
   ];
 
@@ -58,7 +43,6 @@ export default function Settings() {
           <TouchableOpacity
             key={index}
             className="flex-row items-center justify-between p-4 border-b border-gray-200"
-            onPress={() => handleOptionPress(option.href)}
           >
             <View className="flex-row items-center">
               {option.icon}
@@ -66,7 +50,6 @@ export default function Settings() {
             </View>
             <View className="flex-row items-center">
               <Text className="mr-2 text-gray-500">{option.value}</Text>
-              <ChevronRight size={20} color="#9CA3AF" />
             </View>
           </TouchableOpacity>
         ))}

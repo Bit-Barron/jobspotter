@@ -25,13 +25,6 @@ const Menubar: React.FC<MenubarProps> = () => {
       </TouchableOpacity>
       <TouchableOpacity
         className="items-center"
-        onPress={() => router.push("/(main)/")}
-      >
-        <HeartIcon size={24} color="#000" />
-        <Text className="text-xs mt-1">Favorites</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        className="items-center"
         onPress={() => router.push("/(main)/settings")}
       >
         <Settings size={24} color="#000" />

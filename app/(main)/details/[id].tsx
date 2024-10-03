@@ -62,7 +62,7 @@ const JobDetails: React.FC = () => {
   );
 
   return (
-    <ScrollView className="p-4">
+    <ScrollView className="p-4 mt-5">
       <Image
         source={{ uri: job.employer_logo || "https://via.placeholder.com/150" }}
         className="w-20 h-20 mb-4"
