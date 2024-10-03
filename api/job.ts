@@ -21,7 +21,7 @@ export const searchRoute = async (
         : {
             query: `${query || "developer"}`,
             page: `${page || "1"}`,
-            num_pages: "100",
+            num_pages: 1,
             date_posted: "all",
           },
     headers: {

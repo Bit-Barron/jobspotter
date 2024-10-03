@@ -1,5 +1,5 @@
-import React from "react";
-import { FlatList, View, Image, TouchableOpacity, Linking } from "react-native";
+import React, { useState } from "react";
+import { FlatList, View, Image, Linking, ScrollView } from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
 import {
@@ -10,28 +10,17 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import { ScrollView } from "react-native";
+import { Input } from "~/components/ui/input";
+import { SearchStore } from "~/store/dashboard/SearchStore";
 
 export default function Jobs() {
-  const { jobQuery } = JobHook();
+  const { search, setSearch } = SearchStore();
+  const [searchTerm, setSearchTerm] = useState("");
+  const { jobQuery } = JobHook(search);
 
-  if (jobQuery.isLoading) {
-    return (
-      <View className="flex-1 justify-center items-center">
-        <Text>Loading jobs...</Text>
-      </View>
-    );
-  }
-
-  if (jobQuery.isError) {
-    return (
-      <View className="flex-1 justify-center items-center">
-        <Text>Error loading jobs</Text>
-      </View>
-    );
-  }
-
-  const jobs = jobQuery.data?.data || [];
+  const handleSearch = () => {
+    setSearch(searchTerm);
+  };
 
   const renderJobItem = ({ item }: any) => (
     <Card className="mb-4">
@@ -68,12 +57,36 @@ export default function Jobs() {
   return (
     <ScrollView className="flex-1 p-4 bg-gray-100">
       <Text className="text-2xl font-bold mb-4">Available Jobs</Text>
-      <FlatList
-        data={jobs}
-        renderItem={renderJobItem}
-        keyExtractor={(item) => item.job_id}
-        scrollEnabled={false}
-      />
+      <View className="flex-row mb-4">
+        <Input
+          value={searchTerm}
+          onChangeText={setSearchTerm}
+          placeholder="Search for job"
+          className="flex-1 mr-2"
+        />
+        <Button onPress={handleSearch} disabled={jobQuery.isLoading}>
+          <Text>{jobQuery.isLoading ? "Searching..." : "Search"}</Text>
+        </Button>
+      </View>
+      {jobQuery.isLoading ? (
+        <View className="flex-1 justify-center items-center">
+          <Text>Loading jobs...</Text>
+        </View>
+      ) : jobQuery.isError ? (
+        <View className="flex-1 justify-center items-center">
+          <Text>Error loading jobs</Text>
+        </View>
+      ) : (
+        <FlatList
+          data={jobQuery.data?.data || []}
+          renderItem={renderJobItem}
+          keyExtractor={(item) => item.job_id}
+          ListEmptyComponent={
+            <Text className="text-center">No jobs found</Text>
+          }
+          scrollEnabled={false}
+        />
+      )}
     </ScrollView>
   );
 }
