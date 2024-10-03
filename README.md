@@ -1,39 +1,18 @@
-# SkillSwap
+<!DOCTYPE html>
+<html lang="en">
+    <h1>JobSpotter</h1>
 
-SkillSwap is a local skill-sharing platform that connects people within communities to teach and learn from each other.
+<p>JobSpotter is a powerful job search and management application designed to streamline your job hunting process.</p>
 
-## 🌟 Features
+<h2>Features</h2>
+<ul>
+    <li><strong>Job Search</strong>: Easily search for jobs across multiple platforms and websites.</li>
+    <li><strong>Application Tracking</strong>: Keep track of all your job applications in one place.</li>
+    <li><strong>Resume Management</strong>: Store and manage multiple versions of your resume.</li>
+    <li><strong>Interview Scheduler</strong>: Schedule and manage your job interviews.</li>
+    <li><strong>Salary Comparison</strong>: Compare salaries for similar positions in your area.</li>
+    <li><strong>Skill Recommendations</strong>: Get personalized recommendations for skills to improve your job prospects.</li>
+</ul>
 
-- User profiles for teachers and learners
-- Skill categorization system
-- In-app scheduling and messaging
-- Secure payment processing
-- Community forums and events
-- Location-based search
-- Review and rating system
 
-## 🚀 Getting Started
-
-(Instructions for setting up the project locally)
-
-## 💻 Technologies Used
-
-(List of main technologies, frameworks, and libraries used)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## 📞 Contact
-
-For any questions or feedback, please open an issue or contact the maintainers.
-
----
-
-🔍 Discover local talent | 🤝 Exchange skills | 📅 Easy scheduling | 💰 Secure transactions | 🌟 Build your reputation
-
-Join SkillSwap and unlock the potential in your neighborhood!
+</html>
