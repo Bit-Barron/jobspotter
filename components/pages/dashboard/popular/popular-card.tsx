@@ -19,7 +19,7 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
   return (
     <TouchableOpacity
       className="mr-4 w-96 h-60"
-      onPress={() => router.push(`/(auth)/login`)}
+      onPress={() => router.push(`/details/${item.job_id}`)}
     >
       <Card className="border-0 shadow-md">
         <CardHeader className="pb-2">

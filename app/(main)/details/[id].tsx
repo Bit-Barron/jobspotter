@@ -1,20 +1,13 @@
 import React from "react";
-import { Text, ScrollView } from "react-native";
-import { useLocalSearchParams } from "expo-router";
-import { JobHook } from "../../../components/hooks/job-hook";
+import { ScrollView, View } from "react-native";
+import { Text } from "~/components/ui/text";
 
 export default function JobDetails() {
-  const { id } = useLocalSearchParams();
-  const { jobQuery } = JobHook(id as string, "job-details");
-  const job = jobQuery.data;
-  console.log(job);
-
   return (
     <ScrollView>
-      <Text>{job.data[0].job_title}</Text>
-      <Text>{job.data[0].employer_name}</Text>
-      <Text>{job.data[0].job_description}</Text>
-      {/* Add more job details as needed */}
+      <View>
+        <Text>Hello</Text>
+      </View>
     </ScrollView>
   );
 }
