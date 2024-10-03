@@ -34,9 +34,7 @@ export default function Main() {
           <TouchableOpacity>
             <Text className="text-2xl">Nearby jobs</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => router.push("/jobs" as Href<"/jobs">)}
-          >
+          <TouchableOpacity onPress={() => router.push("/jobs")}>
             <Text className="text-gray-600">Show all</Text>
           </TouchableOpacity>
         </View>
