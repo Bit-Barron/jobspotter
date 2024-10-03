@@ -21,11 +21,13 @@ import { Input } from "~/components/ui/input";
 import { SearchStore } from "~/store/dashboard/SearchStore";
 import { useRouter } from "expo-router";
 import EmploymentTypeFilter from "~/components/pages/jobs/employment-filter";
+import { FilterStore } from "~/store/dashboard/FilterStore";
 
 export default function Jobs() {
   const { search, setSearch } = SearchStore();
+  const { selectedType } = FilterStore();
   const [searchTerm, setSearchTerm] = useState("");
-  const { jobQuery } = JobHook(search);
+  const { jobQuery } = JobHook(search || (selectedType as string));
   const router = useRouter();
 
   const handleSearch = () => {

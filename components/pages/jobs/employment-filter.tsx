@@ -36,7 +36,7 @@ const EmploymentTypeFilter = () => {
           </Text>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-[360px]">
+      <DropdownMenuContent className="w-[365px]">
         {employmentTypes.map((type) => (
           <DropdownMenuItem key={type.id} onPress={() => handleSelect(type.id)}>
             <View
