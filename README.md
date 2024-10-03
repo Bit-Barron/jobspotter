@@ -13,6 +13,7 @@
     <li><strong>Salary Comparison</strong>: Compare salaries for similar positions in your area.</li>
     <li><strong>Skill Recommendations</strong>: Get personalized recommendations for skills to improve your job prospects.</li>
 </ul>
-
-
+<p align="center">
+<img src="https://raw.githubusercontent.com/Bit-Barron/JobSpotter/refs/heads/main/dd.webp" />
+</p>
 </html>
