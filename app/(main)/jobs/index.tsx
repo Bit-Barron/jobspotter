@@ -67,7 +67,7 @@ export default function Jobs() {
 
   return (
     <ScrollView className="flex-1 p-4 bg-gray-100">
-      <Text className="text-2xl font-bold mb-4">Available Jobs</Text>
+      <Text className="text-2xl font-bold mb-4 mt-4">Available Jobs</Text>
       <View className="flex-row mb-4">
         <Input
           value={searchTerm}

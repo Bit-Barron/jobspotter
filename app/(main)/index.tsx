@@ -16,7 +16,7 @@ export default function Main() {
 
   return (
     <View className="p-2 flex-1">
-      <View className="flex-row justify-between items-center">
+      <View className="flex-row justify-between items-center mt-5">
         <Text className="text-lg font-light p-2">Hello, {user?.username}</Text>
         <TouchableOpacity onPress={() => onLogout()}>
           <Text className="text-gray-600 p-2">logout</Text>

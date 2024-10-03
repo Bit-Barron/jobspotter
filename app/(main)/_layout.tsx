@@ -22,21 +22,21 @@ const Layout = () => {
         name="index"
         options={{
           title: "Home",
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <Stack.Screen
         name="jobs/index"
         options={{
           title: "Jobs",
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <Stack.Screen
         name="details/[id]"
         options={{
           title: "Job Details",
-          headerShown: true,
+          headerShown: false,
         }}
       />
     </Stack>
