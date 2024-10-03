@@ -1,12 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import {
-  Briefcase,
-  Home,
-  Settings,
-  User,
-  HeartIcon,
-} from "lucide-react-native";
+import { Briefcase, Home, Settings, HeartIcon } from "lucide-react-native";
 import { useRouter } from "expo-router";
 
 interface MenubarProps {}
@@ -36,7 +30,10 @@ const Menubar: React.FC<MenubarProps> = () => {
         <HeartIcon size={24} color="#000" />
         <Text className="text-xs mt-1">Favorites</Text>
       </TouchableOpacity>
-      <TouchableOpacity className="items-center">
+      <TouchableOpacity
+        className="items-center"
+        onPress={() => router.push("/(main)/settings")}
+      >
         <Settings size={24} color="#000" />
         <Text className="text-xs mt-1">Settings</Text>
       </TouchableOpacity>

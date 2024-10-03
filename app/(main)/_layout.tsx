@@ -41,6 +41,13 @@ const Layout = () => {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="settings/index"
+          options={{
+            title: "Job Details",
+            headerShown: false,
+          }}
+        />
       </Stack>
       <Menubar />
     </>
