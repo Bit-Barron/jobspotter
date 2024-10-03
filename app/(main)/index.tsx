@@ -6,17 +6,19 @@ import { Text } from "~/components/ui/text";
 import { PopularJobs } from "~/components/pages/dashboard/popular/popular-jobs";
 import { NearbyJobs } from "~/components/pages/dashboard/nearby/nearby-jobs";
 import { useRouter, Href } from "expo-router";
+import { useAuthActions } from "~/store/auth/AuthStore";
 
 export default function Main() {
   const { user } = useUser();
   const router = useRouter();
-  const {} = "";
+
+  const { onLogout } = useAuthActions();
 
   return (
     <View className="p-2 flex-1">
       <View className="flex-row justify-between items-center">
         <Text className="text-lg font-light p-2">Hello, {user?.username}</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onLogout()}>
           <Text className="text-gray-600 p-2">logout</Text>
         </TouchableOpacity>
       </View>
