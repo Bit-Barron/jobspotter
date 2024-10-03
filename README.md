@@ -14,6 +14,6 @@
     <li><strong>Skill Recommendations</strong>: Get personalized recommendations for skills to improve your job prospects.</li>
 </ul>
 <p align="center">
-<img src="https://raw.githubusercontent.com/Bit-Barron/JobSpotter/refs/heads/main/dd.webp" />
+<img src="https://raw.githubusercontent.com/Bit-Barron/JobSpotter/refs/heads/main/dd.webp"  width="200"  />
 </p>
 </html>
