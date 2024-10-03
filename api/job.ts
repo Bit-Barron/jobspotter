@@ -6,7 +6,8 @@ const INITIAL_BACKOFF = 1000;
 export const searchRoute = async (
   query?: string,
   endpoint?: string,
-  retryCount?: number
+  retryCount?: number,
+  page: string = "1"
 ): Promise<any> => {
   const options: AxiosRequestConfig<any> = {
     method: "GET",
@@ -19,8 +20,8 @@ export const searchRoute = async (
           }
         : {
             query: `${query || "developer"}`,
-            page: "1",
-            num_pages: "1",
+            page: `${page || "1"}`,
+            num_pages: "100",
             date_posted: "all",
           },
     headers: {
