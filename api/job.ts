@@ -25,7 +25,7 @@ export const searchRoute = async (
             date_posted: "all",
           },
     headers: {
-      "x-rapidapi-key": "c956f274fbmshb582a7494ab839cp125e82jsnee7c8db27c6f",
+      "x-rapidapi-key": "8d212c196fmshec3fbea54f98f89p1a3551jsn6a3f84ea2553",
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };
@@ -45,11 +45,6 @@ export const searchRoute = async (
         await new Promise((resolve) => setTimeout(resolve, backoffTime));
         return searchRoute(query, endpoint, (retryCount ?? 0) + 1);
       }
-      console.error(
-        "API request failed:",
-        axiosError.response?.status,
-        axiosError.response?.data
-      );
     } else {
       console.error("An unexpected error occurred:", error);
     }

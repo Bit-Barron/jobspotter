@@ -2,13 +2,12 @@ import React from "react";
 import { View, TouchableOpacity, ScrollView, Image } from "react-native";
 import { useAuth, useUser } from "@clerk/clerk-expo";
 import { Text } from "~/components/ui/text";
-import { ChevronRight, LogOut, Mail, Phone, User } from "lucide-react-native";
+import { LogOut, Mail, User } from "lucide-react-native";
 import { useRouter } from "expo-router";
 
 export default function Settings() {
   const { signOut } = useAuth();
   const { user } = useUser();
-  const router = useRouter();
 
   const settingsOptions = [
     {
@@ -22,10 +21,6 @@ export default function Settings() {
       value: user?.username,
     },
   ];
-
-  const handleOptionPress = (href: string) => {
-    router.push(href);
-  };
 
   return (
     <ScrollView className="flex-1 bg-gray-50">
