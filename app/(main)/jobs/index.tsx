@@ -20,6 +20,7 @@ import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { SearchStore } from "~/store/dashboard/SearchStore";
 import { useRouter } from "expo-router";
+import EmploymentTypeFilter from "~/components/pages/jobs/employment-filter";
 
 export default function Jobs() {
   const { search, setSearch } = SearchStore();
@@ -79,6 +80,8 @@ export default function Jobs() {
           <Text>{jobQuery.isLoading ? "Searching..." : "Search"}</Text>
         </Button>
       </View>
+      <EmploymentTypeFilter />
+
       {jobQuery.isLoading ? (
         <View className="flex-1 justify-center items-center">
           <Text>Loading jobs...</Text>
