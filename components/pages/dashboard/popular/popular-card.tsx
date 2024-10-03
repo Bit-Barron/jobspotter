@@ -57,4 +57,3 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
 };
 
 export default PopularJobCard;
-// azerabdu5@gmail.com

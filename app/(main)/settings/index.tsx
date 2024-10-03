@@ -10,28 +10,37 @@ import {
   Shield,
   User,
 } from "lucide-react-native";
+import { useRouter } from "expo-router";
 
 export default function Settings() {
   const { signOut } = useAuth();
   const { user } = useUser();
+  const router = useRouter();
 
   const settingsOptions = [
     {
       icon: <Mail size={24} color="#4B5563" />,
       title: "Email",
       value: user?.primaryEmailAddress?.emailAddress,
+      href: "/settings/change-email",
     },
     {
       icon: <Phone size={24} color="#4B5563" />,
       title: "Phone",
       value: user?.phoneNumbers[0]?.phoneNumber,
+      href: "/settings/change-phone",
     },
     {
       icon: <Shield size={24} color="#4B5563" />,
       title: "Password",
       value: "Change password",
+      href: "/settings/change-password",
     },
   ];
+
+  const handleOptionPress = (href: string) => {
+    router.push(href);
+  };
 
   return (
     <ScrollView className="flex-1 bg-gray-50">
@@ -49,6 +58,7 @@ export default function Settings() {
           <TouchableOpacity
             key={index}
             className="flex-row items-center justify-between p-4 border-b border-gray-200"
+            onPress={() => handleOptionPress(option.href)}
           >
             <View className="flex-row items-center">
               {option.icon}
