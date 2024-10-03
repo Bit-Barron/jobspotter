@@ -24,7 +24,7 @@ export const searchRoute = async (
             date_posted: "all",
           },
     headers: {
-      "x-rapidapi-key": "e1b2a19fa3msh1541f622666c95dp18fff2jsne908e1049600",
+      "x-rapidapi-key": "c956f274fbmshb582a7494ab839cp125e82jsnee7c8db27c6f",
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };

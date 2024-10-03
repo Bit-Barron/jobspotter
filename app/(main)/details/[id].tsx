@@ -1,154 +1,99 @@
 import React from "react";
 import { useLocalSearchParams } from "expo-router";
-import { ScrollView, View, Linking } from "react-native";
+import { ScrollView, View, Linking, Image } from "react-native";
 import { JobHook } from "~/components/hooks/job-hook";
 import { Text } from "~/components/ui/text";
-import { Card } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 
-export default function JobDetails() {
-  const { id } = useLocalSearchParams();
-  const { jobQuery } = JobHook(id as string, "job-details");
+interface JobData {
+  employer_logo: string | null;
+  job_title: string;
+  employer_name: string;
+  job_city: string;
+  job_state: string;
+  job_country: string;
+  job_employment_type: string;
+  job_min_salary: number;
+  job_max_salary: number;
+  job_description: string;
+  job_highlights?: {
+    qualifications?: string[];
+  };
+  job_benefits?: string[];
+  job_apply_link: string;
+}
+
+interface JobQueryResult {
+  data?: {
+    data: JobData[];
+  };
+  isLoading: boolean;
+  isError: boolean;
+}
+
+const JobDetails: React.FC = () => {
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const { jobQuery } = JobHook(id, "job-details") as {
+    jobQuery: JobQueryResult;
+  };
 
   if (jobQuery.isLoading) {
-    return (
-      <View className="flex-1 items-center justify-center">
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <Text>Loading...</Text>;
   }
 
   if (jobQuery.isError) {
-    return (
-      <View className="flex-1 items-center justify-center">
-        <Text>Error loading job details</Text>
-      </View>
-    );
+    return <Text>Error loading job details</Text>;
   }
 
-  const job = jobQuery.data || {};
+  const job = jobQuery.data?.data[0];
 
-  const openGoogleLink = () => {
-    if (job.job_google_link) {
-      Linking.openURL(job.job_google_link);
-    }
-  };
+  if (!job) {
+    return <Text>No job data available</Text>;
+  }
+
+  const renderListItem = (
+    label: string,
+    value: string | number | null | undefined
+  ) => (
+    <View className="mb-2">
+      <Text className="font-bold">{label}:</Text>
+      <Text>{value !== null && value !== undefined ? value : "N/A"}</Text>
+    </View>
+  );
 
   return (
-    <ScrollView className="flex-1 bg-background p-4">
-      <Card className="mb-4">
-        <View className="p-4">
-          <Text className="text-2xl font-bold mb-2">
-            {job.job_title || "Job Title Not Available"}
-          </Text>
-          <Text className="text-muted-foreground mb-2">
-            {job.job_publisher || "Publisher Not Available"}
-          </Text>
-          <Text className="mb-2">
-            Location: {job.job_state || "N/A"}
-            (Lat: {job.job_latitude || "N/A"}, Long:{" "}
-            {job.job_longitude || "N/A"})
-          </Text>
-          <Text className="mb-2">
-            Type: {job.job_employment_type || "Not Specified"}
-          </Text>
-          <Text className="mb-2">
-            Remote:{" "}
-            {job.job_is_remote !== undefined
-              ? job.job_is_remote
-                ? "Yes"
-                : "No"
-              : "Not Specified"}
-          </Text>
-          <Text className="mb-2">
-            Posted:{" "}
-            {job.job_posted_at_datetime_utc
-              ? new Date(job.job_posted_at_datetime_utc).toLocaleDateString()
-              : "Date Not Available"}
-          </Text>
+    <ScrollView className="p-4">
+      <Image
+        source={{ uri: job.employer_logo || "https://via.placeholder.com/150" }}
+        className="w-20 h-20 mb-4"
+      />
+      <Text className="text-2xl font-bold mb-4">{job.job_title}</Text>
+      {renderListItem("Company", job.employer_name)}
+      {renderListItem(
+        "Location",
+        `${job.job_city}, ${job.job_state}, ${job.job_country}`
+      )}
+      {renderListItem("Employment Type", job.job_employment_type)}
+      {renderListItem(
+        "Salary Range",
+        `$${job.job_min_salary} - $${job.job_max_salary}`
+      )}
+
+      <Text className="font-bold mt-4 mb-2">Job Description:</Text>
+      <Text>{job.job_description}</Text>
+
+      <View className="mb-5 mt-4">
+        {job.job_apply_link && (
           <Button
-            className="w-full mb-2"
-            onPress={openGoogleLink}
-            disabled={!job.job_google_link}
+            className="text-blue-500 underline"
+            onPress={() => Linking.openURL(job.job_apply_link)}
           >
-            <Text className="text-white">Apply</Text>
+            <Text>Apply Now</Text>
           </Button>
-        </View>
-      </Card>
-
-      <Card className="mb-4">
-        <View className="p-4">
-          <Text className="text-xl font-semibold mb-2">Job Details</Text>
-          <Text className="mb-2">
-            Industry: {job.job_naics_name || "Not Specified"}
-          </Text>
-          <Text className="mb-2">
-            NAICS Code: {job.job_naics_code || "Not Available"}
-          </Text>
-          <Text className="mb-2">
-            ONET Job Zone: {job.job_onet_job_zone || "Not Specified"}
-          </Text>
-          <Text className="mb-2">
-            ONET SOC: {job.job_onet_soc || "Not Available"}
-          </Text>
-          <Text className="mb-2">
-            Language: {job.job_posting_language || "Not Specified"}
-          </Text>
-        </View>
-      </Card>
-
-      <Card className="mb-4">
-        <View className="p-4">
-          <Text className="text-xl font-semibold mb-2">Required Education</Text>
-          <Text>
-            {job.job_required_education
-              ? JSON.stringify(job.job_required_education)
-              : "No specific education requirements listed"}
-          </Text>
-        </View>
-      </Card>
-
-      <Card className="mb-4">
-        <View className="p-4">
-          <Text className="text-xl font-semibold mb-2">
-            Required Experience
-          </Text>
-          <Text>
-            {job.job_required_experience
-              ? JSON.stringify(job.job_required_experience)
-              : "No specific experience requirements listed"}
-          </Text>
-        </View>
-      </Card>
-
-      <Card className="mb-4">
-        <View className="p-4">
-          <Text className="text-xl font-semibold mb-2">Job Description</Text>
-          <Text>{job.job_description || "Job description not available"}</Text>
-        </View>
-      </Card>
-
-      <Card className="mb-4">
-        <View className="p-4">
-          <Text className="text-xl font-semibold mb-2">
-            Equal Opportunity Statement
-          </Text>
-          <Text>
-            {job.job_description &&
-            job.job_description.includes(
-              "McDonald's is an equal opportunity employer"
-            )
-              ? job.job_description.split(
-                  "McDonald's is an equal opportunity employer"
-                )[1]
-              : "Equal opportunity statement not available"}
-          </Text>
-        </View>
-      </Card>
-
-      <Text className="text-xs text-muted-foreground text-center">
-        Job ID: {job.job_id || "Not Available"}
-      </Text>
+        )}
+      </View>
     </ScrollView>
   );
-}
+};
+
+export default JobDetails;
