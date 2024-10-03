@@ -8,14 +8,19 @@ import {
   CardHeader,
 } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
+import { Href, useRouter } from "expo-router";
 
 interface PopularJobCardProps {
   item: any;
 }
 
 const PopularJobCard = ({ item }: PopularJobCardProps) => {
+  const router = useRouter();
   return (
-    <TouchableOpacity className="mr-4 w-96 h-60">
+    <TouchableOpacity
+      className="mr-4 w-96 h-60"
+      onPress={() => router.push(`/(auth)/login`)}
+    >
       <Card className="border-0 shadow-md">
         <CardHeader className="pb-2">
           <View className="flex-row items-center justify-between">

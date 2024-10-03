@@ -11,12 +11,18 @@ export const searchRoute = async (
   const options: AxiosRequestConfig<any> = {
     method: "GET",
     url: `https://jsearch.p.rapidapi.com/${endpoint || "search"}`,
-    params: {
-      query: `${query || "developer"}`,
-      page: "1",
-      num_pages: "1",
-      date_posted: "all",
-    },
+    params:
+      endpoint === "job-details"
+        ? {
+            job_id: query,
+            extended_publisher_details: "false",
+          }
+        : {
+            query: `${query || "developer"}`,
+            page: "1",
+            num_pages: "1",
+            date_posted: "all",
+          },
     headers: {
       "x-rapidapi-key": "e1b2a19fa3msh1541f622666c95dp18fff2jsne908e1049600",
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
