@@ -1,6 +1,6 @@
 import { useRouter } from "expo-router";
 import * as React from "react";
-import { ImageBackground, TouchableOpacity, View } from "react-native";
+import { ImageBackground, View } from "react-native";
 import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
 
