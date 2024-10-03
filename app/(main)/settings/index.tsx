@@ -31,11 +31,6 @@ export default function Settings() {
       title: "Password",
       value: "Change password",
     },
-    {
-      icon: <User size={24} color="#4B5563" />,
-      title: "Profile",
-      value: "Edit profile",
-    },
   ];
 
   return (
