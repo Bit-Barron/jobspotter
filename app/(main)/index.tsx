@@ -10,7 +10,7 @@ import { useRouter, Href } from "expo-router";
 export default function Main() {
   const { user } = useUser();
   const router = useRouter();
-  const { } = ""
+  const {} = "";
 
   return (
     <View className="p-2 flex-1">
@@ -23,9 +23,6 @@ export default function Main() {
 
       <View className="mt-5 flex-row justify-between items-center p-3">
         <Text className="text-2xl">Popular Jobs</Text>
-        <TouchableOpacity>
-          <Text className="text-gray-600"></Text>
-        </TouchableOpacity>
       </View>
       <PopularJobs />
 

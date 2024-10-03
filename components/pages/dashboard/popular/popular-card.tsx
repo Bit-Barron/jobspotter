@@ -42,7 +42,7 @@ const PopularJobCard = ({ item }: PopularJobCardProps) => {
           </View>
         </CardHeader>
         <CardContent>
-          <Text className="text-lg font-semibold mb-1 w-40 truncate">
+          <Text className="text-lg font-semibold mb-1 truncate">
             {item.job_title || "Untitled Position"}
           </Text>
           <View className="flex-row items-center mb-2">
