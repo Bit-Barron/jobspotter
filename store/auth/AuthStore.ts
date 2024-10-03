@@ -1,4 +1,5 @@
-import create from "zustand";
+import { create } from "zustand";
+
 import { useSignUp, useAuth } from "@clerk/clerk-expo";
 
 type AuthStore = {
