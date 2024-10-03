@@ -18,7 +18,7 @@ export default function Main() {
       <View className="mt-5 flex-row justify-between items-center p-3">
         <Text className="text-2xl">Popular Jobs</Text>
         <TouchableOpacity>
-          <Text className="text-gray-600">Show all</Text>
+          <Text className="text-gray-600"></Text>
         </TouchableOpacity>
       </View>
       <PopularJobs />
@@ -26,7 +26,7 @@ export default function Main() {
         <TouchableOpacity>
           <Text className="text-2xl">Nearby jobs</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => router.push("/jobs/")}>
           <Text className="text-gray-600">Show all</Text>
         </TouchableOpacity>
       </View>
